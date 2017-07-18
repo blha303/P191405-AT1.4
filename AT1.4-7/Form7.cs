@@ -11,6 +11,7 @@ namespace AT1_4_7 {
         public Form7() {
             InitializeComponent();
         }
+
         private void btnStart_Click(object sender, EventArgs e) {
             int one = int.Parse(tbInputOne.Text);
             int two = int.Parse(tbInputTwo.Text);

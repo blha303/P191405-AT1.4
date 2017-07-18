@@ -5,6 +5,7 @@
 
 using System.Windows.Forms;
 using System.Drawing;
+using System.ComponentModel;
 
 namespace AT1_4_7 {
     partial class Form7 {
@@ -17,6 +18,12 @@ namespace AT1_4_7 {
         }
 
         private void InitializeComponent() {
+            // Added to try to fix bug with window not closing
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(Form7));
+            if (this.components == null) {
+                this.components = new Container();
+            }
+            // End added
             this.SuspendLayout();
             this.tbInputOneLbl = new Label();
             this.tbInputOneLbl.Location = new Point(58, 43);
@@ -92,6 +99,10 @@ namespace AT1_4_7 {
 
             // 55 175
             // 150 177 203 230
+            /** I confused the order of these points initially, the first four had an x of 55 because
+             * I wrote out all these with a misunderstanding of the layout of the program. I fixed it
+             * after the unexpected behaviour that happens when your textboxes are in the wrong order
+             */
             this.tbOneA = new TextBox();
             this.tbOneA.Location = new Point(55,150);
             this.tbOneA.Size = TBSize;
@@ -99,37 +110,37 @@ namespace AT1_4_7 {
             this.tbOneA.Name = "tbOneA";
 
             this.tbOneB = new TextBox();
-            this.tbOneB.Location = new Point(55,177);
+            this.tbOneB.Location = new Point(175,150);
             this.tbOneB.Size = TBSize;
             this.tbOneB.Enabled = false;
             this.tbOneB.Name = "tbOneB";
 
             this.tbTwoA = new TextBox();
-            this.tbTwoA.Location = new Point(55,203);
+            this.tbTwoA.Location = new Point(55,177);
             this.tbTwoA.Size = TBSize;
             this.tbTwoA.Enabled = false;
             this.tbTwoA.Name = "tbTwoA";
 
             this.tbTwoB = new TextBox();
-            this.tbTwoB.Location = new Point(55,230);
+            this.tbTwoB.Location = new Point(175,177);
             this.tbTwoB.Size = TBSize;
             this.tbTwoB.Enabled = false;
             this.tbTwoB.Name = "tbTwoB";
 
             this.tbThreeA = new TextBox();
-            this.tbThreeA.Location = new Point(175,150);
+            this.tbThreeA.Location = new Point(55,203);
             this.tbThreeA.Size = TBSize;
             this.tbThreeA.Enabled = false;
             this.tbThreeA.Name = "tbThreeA";
 
             this.tbThreeB = new TextBox();
-            this.tbThreeB.Location = new Point(175,177);
+            this.tbThreeB.Location = new Point(175,203);
             this.tbThreeB.Size = TBSize;
             this.tbThreeB.Enabled = false;
             this.tbThreeB.Name = "tbThreeB";
 
             this.tbFinalA = new TextBox();
-            this.tbFinalA.Location = new Point(175,203);
+            this.tbFinalA.Location = new Point(55,230);
             this.tbFinalA.Size = TBSize;
             this.tbFinalA.Enabled = false;
             this.tbFinalA.Name = "tbFinalA";
@@ -140,7 +151,6 @@ namespace AT1_4_7 {
             this.tbFinalB.Enabled = false;
             this.tbFinalB.Name = "tbFinalB";
 
-            // Form window
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(302, 344);
@@ -165,6 +175,13 @@ namespace AT1_4_7 {
             this.Controls.Add(this.tbFinalB);
             this.Name = "Form7";
             this.Text = "White Box";
+
+            // Added to try to fix bug with window not closing
+            foreach (System.ComponentModel.IComponent control in this.Controls) {
+                this.components.Add(control);
+            }
+            // End added
+
             this.ResumeLayout(false);
             this.PerformLayout();
         }
