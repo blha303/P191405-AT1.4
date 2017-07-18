@@ -83,6 +83,15 @@ namespace AT1_4_7 {
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
 
+            this.btnClose = new Button();
+            this.btnClose.Location = new Point(290, 0);
+            this.btnClose.Size = new Size(10, 10);
+            this.btnClose.TabIndex = 3;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+
             Size TBSize = new Size(45,20);
 
             this.tbInputOne = new TextBox();
@@ -163,6 +172,7 @@ namespace AT1_4_7 {
             this.Controls.Add(this.row3Lbl);
             this.Controls.Add(this.finalLbl);
             this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tbInputOne);
             this.Controls.Add(this.tbInputTwo);
             this.Controls.Add(this.tbOneA);
@@ -195,6 +205,7 @@ namespace AT1_4_7 {
         private Label row3Lbl; // IF:
         private Label finalLbl; // Final:
         private Button btnStart; // Start
+        private Button btnClose;
         private TextBox tbInputOne;
         private TextBox tbInputTwo;
         private TextBox tbOneA;

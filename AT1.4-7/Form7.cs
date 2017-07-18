@@ -12,6 +12,10 @@ namespace AT1_4_7 {
             InitializeComponent();
         }
 
+        private void btnClose_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
+
         private void btnStart_Click(object sender, EventArgs e) {
             int one = int.Parse(tbInputOne.Text);
             int two = int.Parse(tbInputTwo.Text);
